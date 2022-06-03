@@ -2,11 +2,12 @@
 
 # Creates a thumbnail for a given image in the $wppath directory
 
-file=$1
-wppath=$HOME/pix/wp
-relpath=$(realpath --relative-to=.. $file)
+png_file=$1
+jpg_file=$(echo $png_file | sed 's/\.png/\.jpg/')
+# Basename of the current directory
+dir=${PWD##*/}
 
 # Depends on imagemagick
-convert -resize 10% $file $wppath/thumbnails/$relpath
+convert -resize 10% -quality 70% $png_file ../thumbnails/$dir/$jpg_file
 
-echo "[![Thumbnail](./thumbnails/$relpath)](./$relpath)\n" >> $wppath/README.md
+echo "[![Thumbnail](./thumbnails/$dir/$jpg_file)](./$dir/$png_file)" >> ../README.md

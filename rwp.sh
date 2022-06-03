@@ -2,7 +2,7 @@
 
 # Set random wallpaper.
 
-dir=$HOME/pix/wallpapers/art
+dir=$HOME/pix/wp/art
 random_img=$(find $dir -maxdepth 1 -type f | shuf -n 1)
 
 xwallpaper --center $random_img
