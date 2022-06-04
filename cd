@@ -4,5 +4,5 @@
 
 dir=$1
 # -z checks if a string is empty, i.e. cd with no arguments.
-{ [ -z $dir ] && echo "       Home" | fl | lol && ls $HOME && \cd; } ||
+{ [ -z $dir ] && echo "       Home" | figlet | lolcat && ls $HOME && \cd; } ||
 { \cd $dir && ls $PWD; }
