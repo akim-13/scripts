@@ -1,0 +1,6 @@
+#!/bin/bash
+
+# Prompt sudo if the file isn't writable
+
+file=$1
+[ -w $file ] && $EDITOR $file || sudoedit $file
