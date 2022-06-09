@@ -3,4 +3,9 @@
 # Prompt sudo if the file isn't writable
 
 file=$1
-[ -w $file ] && $EDITOR $file || sudoedit $file
+# If exists and not writable
+if [ -e $file ] && [ ! -w $file ]; then
+    sudoedit $file
+else
+    $EDITOR $file
+fi
